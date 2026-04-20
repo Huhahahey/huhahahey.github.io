@@ -2090,49 +2090,56 @@
       mermaid: 'https://g.alicdn.com/code/lib/mermaid/10.6.1/mermaid.min.js',
       katexCSS: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/katex.min.css',
       katexJS: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/katex.min.js',
-      katexAutoRender: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/contrib/auto-render.min.js'
+      katexAutoRender: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/contrib/auto-render.min.js',
+      notoSansSC: 'https://g.alicdn.com/code/lib/google-fonts/noto-sans-sc/v27/noto-sans-sc.css'
     },
     
     'tencent': {
       mermaid: 'https://libs.baidu.com/libs/mermaid/10.6.1/mermaid.min.js',
       katexCSS: 'https://libs.baidu.com/libs/KaTeX/0.16.9/katex.min.css',
       katexJS: 'https://libs.baidu.com/libs/KaTeX/0.16.9/katex.min.js',
-      katexAutoRender: 'https://libs.baidu.com/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+      katexAutoRender: 'https://libs.baidu.com/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
+      notoSansSC: 'https://libs.baidu.com/libs/google-fonts/noto-sans-sc/v27/noto-sans-sc.css'
     },
     
     'qiniu': {
       mermaid: 'https://cdn.staticfile.org/mermaid/10.6.1/mermaid.min.js',
       katexCSS: 'https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css',
       katexJS: 'https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.js',
-      katexAutoRender: 'https://cdn.staticfile.org/KaTeX/0.16.9/contrib/auto-render.min.js'
+      katexAutoRender: 'https://cdn.staticfile.org/KaTeX/0.16.9/contrib/auto-render.min.js',
+      notoSansSC: 'https://cdn.staticfile.org/google-fonts/noto-sans-sc/v27/noto-sans-sc.css'
     },
     
     'bootcdn': {
       mermaid: 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.6.1/mermaid.min.js',
       katexCSS: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.css',
       katexJS: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.js',
-      katexAutoRender: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+      katexAutoRender: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
+      notoSansSC: 'https://cdn.bootcdn.net/ajax/libs/google-fonts/noto-sans-sc/v27/noto-sans-sc.css'
     },
     
     'unpkg-cn': {
       mermaid: 'https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js',
       katexCSS: 'https://unpkg.com/katex@0.16.9/dist/katex.min.css',
       katexJS: 'https://unpkg.com/katex@0.16.9/dist/katex.min.js',
-      katexAutoRender: 'https://unpkg.com/katex@0.16.9/dist/contrib/auto-render.min.js'
+      katexAutoRender: 'https://unpkg.com/katex@0.16.9/dist/contrib/auto-render.min.js',
+      notoSansSC: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap'
     },
     
     'jsdelivr': {
       mermaid: 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js',
       katexCSS: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
       katexJS: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js',
-      katexAutoRender: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js'
+      katexAutoRender: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js',
+      notoSansSC: 'https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;700&display=swap'
     },
     
     'cloudflare': {
       mermaid: 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js',
       katexCSS: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css',
       katexJS: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
-      katexAutoRender: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+      katexAutoRender: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js',
+      notoSansSC: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap'
     }
   };
 
@@ -2141,7 +2148,8 @@
     mermaid: '/js/vendor/mermaid.min.js',
     katexCSS: '/css/vendor/katex.min.css',
     katexJS: '/js/vendor/katex.min.js',
-    katexAutoRender: '/js/vendor/katex-auto-render.min.js'
+    katexAutoRender: '/js/vendor/katex-auto-render.min.js',
+    notoSansSC: '/css/vendor/fonts/noto-sans-sc.css'
   };
 
   
@@ -2350,6 +2358,23 @@
   
   window.ResourceLoader.loadCSS('katexCSS').catch(err => {
     console.error('Failed to load KaTeX CSS:', err);
+  });
+})();
+</script>
+
+
+<script>
+(function() {
+  if (typeof window.ResourceLoader === 'undefined') {
+    console.error('ResourceLoader not initialized');
+    return;
+  }
+  
+  
+  window.ResourceLoader.loadCSS('notoSansSC').then(() => {
+    console.log('✅ Noto Sans SC font loaded successfully');
+  }).catch(err => {
+    console.error('❌ Failed to load Noto Sans SC font:', err);
   });
 })();
 </script>
