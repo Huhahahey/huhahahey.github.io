@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>渲染引擎 on 技术博客</title>
-    <link>/tags/%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E/</link>
+    <link>//localhost:1313/tags/%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E/</link>
     <description>Recent content in 渲染引擎 on 技术博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浏览器渲染原理深度解析：从HTML到像素的完整旅程</title>
-      <link>/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</link>
+      <link>//localhost:1313/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</guid>
+      <guid>//localhost:1313/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;当你在浏览器地址栏输入URL并按下回车键的那一刻,一场精密而复杂的渲染之旅就开始了。&lt;/p&gt;&#xA;&lt;p&gt;从服务器返回的HTML文本,到你眼前看到的精美页面,这中间经历了什么?为什么有些页面加载飞快,有些却卡顿缓慢?为什么修改一个CSS属性可能触发整个页面的重新布局?&lt;/p&gt;&#xA;&lt;p&gt;理解浏览器的渲染机制,是成为高级前端工程师的必经之路。它不仅帮助你写出更高效的代码,更能让你在遇到性能问题时,能够快速定位根因并给出解决方案。&lt;/p&gt;&#xA;&lt;p&gt;本文将带你深入浏览器渲染引擎的内部,从HTML解析到像素绘制,一步步揭开渲染的神秘面纱。我们将探讨浏览器如何通过多进程架构保障稳定性,如何通过关键渲染路径将抽象的代码转化为可视的界面,以及开发者如何利用这些知识优化页面性能。&lt;/p&gt;&#xA;&lt;h2 id=&#34;浏览器架构概览&#34;&gt;浏览器架构概览&lt;/h2&gt;&#xA;&lt;h3 id=&#34;多进程架构&#34;&gt;多进程架构&lt;/h3&gt;&#xA;&lt;p&gt;现代浏览器采用多进程架构,以提升稳定性和安全性。这种设计的核心理念是将不同的功能模块隔离在独立的进程中,即使某个进程崩溃,也不会影响其他进程的正常运行。&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;mermaid&#34;&gt;graph TB&#xA;    A[Browser Process\n浏览器主进程] --&amp;gt; B[Renderer Process 1\n渲染进程1]&#xA;    A --&amp;gt; C[Renderer Process 2\n渲染进程2]&#xA;    A --&amp;gt; D[GPU Process\nGPU进程]&#xA;    A --&amp;gt; E[Network Process\n网络进程]&#xA;    &#xA;    B --&amp;gt; F[Main Thread\n主线程]&#xA;    B --&amp;gt; G[Worker Thread\n工作线程]&#xA;    B --&amp;gt; H[Compositor Thread\n合成线程]&#xA;    &#xA;    F --&amp;gt; I[JS Engine\nJS引擎]&#xA;    F --&amp;gt; J[Layout Engine\n布局引擎]&#xA;    F --&amp;gt; K[Paint Engine\n绘制引擎]&#xA;    &#xA;    style A fill:#ffe6f0,stroke:#333,stroke-width:2px&#xA;    style B fill:#ccffcc&#xA;    style D fill:#e6f3ff&lt;/div&gt;&#xA;&lt;p&gt;&lt;strong&gt;各进程职责详解&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;进程&lt;/th&gt;&#xA;          &lt;th&gt;职责&lt;/th&gt;&#xA;          &lt;th&gt;说明&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Browser Process&lt;/td&gt;&#xA;          &lt;td&gt;协调其他进程、管理书签、地址栏等&lt;/td&gt;&#xA;          &lt;td&gt;只有一个,负责整体协调和用户界面管理&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Renderer Process&lt;/td&gt;&#xA;          &lt;td&gt;解析HTML、CSS、执行JS、渲染页面&lt;/td&gt;&#xA;          &lt;td&gt;每个Tab一个,沙箱隔离,确保安全&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;GPU Process&lt;/td&gt;&#xA;          &lt;td&gt;GPU加速、3D CSS、Canvas&lt;/td&gt;&#xA;          &lt;td&gt;独立于渲染进程,处理图形计算密集型任务&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Network Process&lt;/td&gt;&#xA;          &lt;td&gt;处理网络请求、缓存管理&lt;/td&gt;&#xA;          &lt;td&gt;资源共享,统一管理网络连接&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;这种多进程架构带来了显著的优势。首先,安全性得到提升,每个渲染进程运行在沙箱环境中,即使恶意代码也无法突破进程边界访问系统资源。其次,稳定性大幅改善,单个标签页的崩溃不会导致整个浏览器退出。最后,性能也得到优化,GPU进程可以独立处理图形计算,释放CPU资源用于其他任务。&lt;/p&gt;</description>
     </item>
   </channel>

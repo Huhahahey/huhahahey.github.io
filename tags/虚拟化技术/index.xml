@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>虚拟化技术 on 技术博客</title>
-    <link>/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/</link>
+    <link>//localhost:1313/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/</link>
     <description>Recent content in 虚拟化技术 on 技术博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>虚拟机技术深度解析：原理、实践与容器对比</title>
-      <link>/posts/virtual-machine-technology-deep-dive/</link>
+      <link>//localhost:1313/posts/virtual-machine-technology-deep-dive/</link>
       <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>/posts/virtual-machine-technology-deep-dive/</guid>
+      <guid>//localhost:1313/posts/virtual-machine-technology-deep-dive/</guid>
       <description>&lt;h2 id=&#34;引言虚拟化的本质&#34;&gt;引言:虚拟化的本质&lt;/h2&gt;&#xA;&lt;p&gt;当我们谈论虚拟化时,我们在谈论什么?&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;核心定义:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;虚拟化是将物理资源抽象、转换和呈现为逻辑资源的技术。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;但这只是表面。更深层次地看,虚拟化技术的出现彻底改变了我们使用和管理计算资源的方式。在过去,一台物理服务器只能运行一个操作系统和一组应用程序,这种&amp;quot;一机一用&amp;quot;的模式导致了严重的资源浪费——大多数服务器的 CPU 利用率长期维持在 10%-15% 的水平。虚拟化技术通过引入抽象层,使得单一物理硬件能够同时承载多个独立的虚拟环境,每个环境都拥有自己的操作系统、应用程序和资源视图,仿佛独占整台机器。&lt;/p&gt;&#xA;&lt;p&gt;从技术演进的角度来看,虚拟化并非新鲜事物。早在 20 世纪 60 年代,IBM 就在大型机上实现了时间共享系统,允许多个用户同时使用同一台计算机。然而,直到 21 世纪初,随着 x86 架构处理器性能的提升和硬件虚拟化扩展(如 Intel VT-x 和 AMD-V)的引入,虚拟化才真正走向普及,成为现代云计算和数据中心的基石技术。&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[虚拟化] --&amp;gt; B[抽象层]&#xA;    A --&amp;gt; C[资源池化]&#xA;    A --&amp;gt; D[隔离机制]&#xA;    A --&amp;gt; E[动态调度]&#xA;    &#xA;    B --&amp;gt; B1[隐藏实现细节]&#xA;    C --&amp;gt; C1[提高利用率]&#xA;    D --&amp;gt; D1[多租户安全]&#xA;    E --&amp;gt; E1[弹性伸缩]&#xA;    &#xA;    style A fill:#c8e6c9&#xA;    style B fill:#e8f5e9&#xA;    style C fill:#fff9c4&#xA;    style D fill:#ffe0b2&#xA;    style E fill:#ffccbc&lt;/div&gt;&#xA;&lt;p&gt;虚拟化的核心价值体现在四个维度:抽象层通过隐藏底层硬件的复杂性,使得上层软件无需关心具体的实现细节;资源池化将分散的物理资源整合为统一的资源池,显著提高了硬件利用率;隔离机制确保不同虚拟机之间互不干扰,为多租户环境提供了安全保障;动态调度则允许系统根据负载情况实时调整资源分配,实现弹性伸缩。&lt;/p&gt;&#xA;&lt;p&gt;本文将深入虚拟机技术的底层原理,理解硬件虚拟化的工作机制,并与容器技术进行全面对比。我们将从虚拟化面临的核心挑战出发,逐步剖析 Hypervisor 的工作模式、CPU 和内存虚拟化的实现机制、I/O 虚拟化的技术方案,最后探讨主流虚拟化平台的特点以及虚拟机与容器的适用场景。&lt;/p&gt;</description>
     </item>
   </channel>

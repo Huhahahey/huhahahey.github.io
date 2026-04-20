@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>性能优化 - 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/favicon.png">
-  <link rel="canonical" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" />
+  <link rel="icon" href="//localhost:1313/favicon.png">
+  <link rel="canonical" href="//localhost:1313/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" />
     
     
-    <link rel="stylesheet" href="/css/style.min.baeb7bee3cce062faf70235df84f28a3f786943bb91b7398f6e11fec772cca22.css">
-    <link rel="stylesheet" href="/assets/css/extended.min.b2f8e9e344c0e2ad28fd31ec183d7a1c2e3fb692ed7f0d8c0b7c918820efa382.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/extended.css">
 
   
     
     <meta property="og:title" content="性能优化"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <meta property="og:url" content="//localhost:1313/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
     
     <meta name="twitter:card" content="summary"/>
@@ -43,25 +43,25 @@
         
             
                 <li class="menu-item-home">
-                    <a href="/">Home</a>
+                    <a href="//localhost:1313/">Home</a>
                 </li>
             
         
             
                 <li class="menu-item-blog">
-                    <a href="/posts/">Blog</a>
+                    <a href="//localhost:1313/posts/">Blog</a>
                 </li>
             
         
             
                 <li class="menu-item-tags">
-                    <a href="/tags/">Tags</a>
+                    <a href="//localhost:1313/tags/">Tags</a>
                 </li>
             
         
             
                 <li class="menu-item-about">
-                    <a href="/about/">About</a>
+                    <a href="//localhost:1313/about/">About</a>
                 </li>
             
         
@@ -152,19 +152,16 @@
   
 
   
-    <script type="text/javascript" src="/js/bundle.min.5993fcb11c07dea925a3fbd58c03c7f1857197c35fccce3aa963a12c0b3c9960.js"></script>
+    <script type="text/javascript" src="/js/bundle.js"></script>
   
 
   
   
 
   
-  
-  
-    
-  
 
   
+
 
   
 <script>
@@ -172,6 +169,34 @@
   
   
   const cdnProviders = {
+    
+    'aliyun': {
+      mermaid: 'https://g.alicdn.com/code/lib/mermaid/10.6.1/mermaid.min.js',
+      katexCSS: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/katex.min.css',
+      katexJS: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/katex.min.js',
+      katexAutoRender: 'https://g.alicdn.com/code/lib/KaTeX/0.16.9/contrib/auto-render.min.js'
+    },
+    
+    'tencent': {
+      mermaid: 'https://libs.baidu.com/libs/mermaid/10.6.1/mermaid.min.js',
+      katexCSS: 'https://libs.baidu.com/libs/KaTeX/0.16.9/katex.min.css',
+      katexJS: 'https://libs.baidu.com/libs/KaTeX/0.16.9/katex.min.js',
+      katexAutoRender: 'https://libs.baidu.com/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+    },
+    
+    'qiniu': {
+      mermaid: 'https://cdn.staticfile.org/mermaid/10.6.1/mermaid.min.js',
+      katexCSS: 'https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css',
+      katexJS: 'https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.js',
+      katexAutoRender: 'https://cdn.staticfile.org/KaTeX/0.16.9/contrib/auto-render.min.js'
+    },
+    
+    'bootcdn': {
+      mermaid: 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.6.1/mermaid.min.js',
+      katexCSS: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.css',
+      katexJS: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/katex.min.js',
+      katexAutoRender: 'https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+    },
     
     'unpkg-cn': {
       mermaid: 'https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js',
@@ -204,7 +229,7 @@
   };
 
   
-  const cdnOrder = ['unpkg-cn', 'jsdelivr', 'cloudflare'];
+  const cdnOrder = ['aliyun', 'tencent', 'qiniu', 'bootcdn', 'unpkg-cn', 'jsdelivr', 'cloudflare'];
 
   
   function loadCSS(resourceKey) {
