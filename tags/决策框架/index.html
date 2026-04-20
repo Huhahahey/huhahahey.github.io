@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>决策框架 - 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="//localhost:1313/favicon.png">
-  <link rel="canonical" href="//localhost:1313/tags/%E5%86%B3%E7%AD%96%E6%A1%86%E6%9E%B6/" />
+  <link rel="icon" href="/favicon.png">
+  <link rel="canonical" href="/tags/%E5%86%B3%E7%AD%96%E6%A1%86%E6%9E%B6/" />
     
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/assets/css/extended.css">
+    <link rel="stylesheet" href="/css/style.min.baeb7bee3cce062faf70235df84f28a3f786943bb91b7398f6e11fec772cca22.css">
+    <link rel="stylesheet" href="/assets/css/extended.min.b2f8e9e344c0e2ad28fd31ec183d7a1c2e3fb692ed7f0d8c0b7c918820efa382.css">
 
   
     
     <meta property="og:title" content="决策框架"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="//localhost:1313/tags/%E5%86%B3%E7%AD%96%E6%A1%86%E6%9E%B6/"/>
+    <meta property="og:url" content="/tags/%E5%86%B3%E7%AD%96%E6%A1%86%E6%9E%B6/"/>
     
     
     <meta name="twitter:card" content="summary"/>
@@ -31,7 +31,6 @@
   
 
   
-<link rel="stylesheet" href="/css/vendor/katex.min.css">
 </head>
 
 
@@ -44,25 +43,25 @@
         
             
                 <li class="menu-item-home">
-                    <a href="//localhost:1313/">Home</a>
+                    <a href="/">Home</a>
                 </li>
             
         
             
                 <li class="menu-item-blog">
-                    <a href="//localhost:1313/posts/">Blog</a>
+                    <a href="/posts/">Blog</a>
                 </li>
             
         
             
                 <li class="menu-item-tags">
-                    <a href="//localhost:1313/tags/">Tags</a>
+                    <a href="/tags/">Tags</a>
                 </li>
             
         
             
                 <li class="menu-item-about">
-                    <a href="//localhost:1313/about/">About</a>
+                    <a href="/about/">About</a>
                 </li>
             
         
@@ -148,184 +147,462 @@
   
 
   
-    <script type="text/javascript" src="/js/bundle.js"></script>
+    <script type="text/javascript" src="/js/bundle.min.5993fcb11c07dea925a3fbd58c03c7f1857197c35fccce3aa963a12c0b3c9960.js"></script>
   
 
   
   
 
   
+  
+  
+    
+  
 
   
 
-
   
-<script src="/js/vendor/mermaid.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', async function() {
-    if (typeof mermaid === 'undefined') {
-      return;
+(function() {
+  
+  
+  const cdnProviders = {
+    
+    'unpkg-cn': {
+      mermaid: 'https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js',
+      katexCSS: 'https://unpkg.com/katex@0.16.9/dist/katex.min.css',
+      katexJS: 'https://unpkg.com/katex@0.16.9/dist/katex.min.js',
+      katexAutoRender: 'https://unpkg.com/katex@0.16.9/dist/contrib/auto-render.min.js'
+    },
+    
+    'jsdelivr': {
+      mermaid: 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js',
+      katexCSS: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
+      katexJS: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js',
+      katexAutoRender: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js'
+    },
+    
+    'cloudflare': {
+      mermaid: 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js',
+      katexCSS: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css',
+      katexJS: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js',
+      katexAutoRender: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
     }
+  };
 
-    
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'default',
-      securityLevel: 'loose',
-      fontFamily: '"Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif',
-      flowchart: {
-        useMaxWidth: true,
-        htmlLabels: true,
-        curve: 'basis'
-      },
-      sequence: {
-        useMaxWidth: true,
-        wrap: true
-      },
-      gantt: {
-        useMaxWidth: true
-      }
-    });
+  
+  const localPaths = {
+    mermaid: '/js/vendor/mermaid.min.js',
+    katexCSS: '/css/vendor/katex.min.css',
+    katexJS: '/js/vendor/katex.min.js',
+    katexAutoRender: '/js/vendor/katex-auto-render.min.js'
+  };
 
-    
-    const mermaidElements = document.querySelectorAll('.mermaid');
-    
-    if (mermaidElements.length === 0) {
-      return;
-    }
+  
+  const cdnOrder = ['unpkg-cn', 'jsdelivr', 'cloudflare'];
 
-    
-    for (let i = 0; i < mermaidElements.length; i++) {
-      const element = mermaidElements[i];
+  
+  function loadCSS(resourceKey) {
+    return new Promise((resolve, reject) => {
+      let currentCDNIndex = 0;
+      let loaded = false;
       
-      
-      if (element.querySelector('svg')) {
-        continue;
-      }
-
-      
-      
-      const graphDefinition = element.textContent.trim();
-      
-      if (!graphDefinition) {
-        continue;
-      }
-
-      try {
-        
-        const id = `mermaid-${Date.now()}-${i}`;
-        const { svg } = await mermaid.render(id, graphDefinition);
-        
-        
-        element.innerHTML = svg;
-        element.classList.add('mermaid-rendered');
-        
-      } catch (error) {
-        console.error(`Mermaid rendering error [${i}]:`, error);
-        
-        
-        element.innerHTML = `
-          <div style="color: #dc3545; padding: 1rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;">
-            <strong>Mermaid Diagram Error</strong><br>
-            <small>${error.message}</small>
-          </div>
-        `;
-        element.classList.add('mermaid-error');
-      }
-    }
-    
-    if (mermaidElements.length > 0) {
-      console.log(`Mermaid: ${mermaidElements.length} diagram(s) processed`);
-    }
-  });
-</script>
-
-
-<script defer src="/js/vendor/katex.min.js"></script>
-<script defer src="/js/vendor/katex-auto-render.min.js"></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    console.log('KaTeX: Initializing...');
-    
-    
-    setTimeout(function() {
-      if (typeof katex === 'undefined') {
-        console.error('❌ KaTeX: katex object not found!');
-        return;
-      }
-      
-      console.log('✅ KaTeX loaded, version:', katex.version);
-      
-      if (typeof renderMathInElement === 'undefined') {
-        console.error('❌ KaTeX: renderMathInElement not found!');
-        return;
-      }
-      
-      console.log('✅ KaTeX auto-render available');
-      
-      try {
-        renderMathInElement(document.body, {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-          ],
-          throwOnError: false,
-          trust: true,
-          strict: false,
-          macros: {
-            "\\target": "\\text{target}",
-            "\\mkt": "\\text{mkt}",
-            "\\BL": "\\text{BL}"
-          },
+      function tryNextCDN() {
+        if (currentCDNIndex >= cdnOrder.length) {
           
-          errorCallback: function(msg, tex) {
-            console.warn('⚠️ KaTeX warning:', msg);
-            console.warn('   Formula:', tex.substring(0, 150));
+          loadLocal();
+          return;
+        }
+
+        const provider = cdnOrder[currentCDNIndex];
+        const url = cdnProviders[provider][resourceKey];
+        
+        console.log(`🔄 Trying ${provider} CDN for ${resourceKey}...`);
+        
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+        
+        const timeoutId = setTimeout(() => {
+          if (!loaded) {
+            console.warn(`⏱️ ${provider} CDN timeout for ${resourceKey}, trying next...`);
+            cleanup();
+            currentCDNIndex++;
+            tryNextCDN();
           }
-        });
+        }, 2000); 
         
-        const renderedFormulas = document.querySelectorAll('.katex');
-        console.log(`📊 KaTeX: Successfully rendered ${renderedFormulas.length} formulas`);
-        
-        
-        const allParagraphs = Array.from(document.querySelectorAll('p'));
-        let unrenderedDetails = [];
-        
-        allParagraphs.forEach((p, index) => {
-          const text = p.textContent;
-          if (text.includes('$$')) {
-            
-            const hasKatex = p.querySelector('.katex');
-            if (!hasKatex) {
-              unrenderedDetails.push({
-                index: index,
-                content: text.substring(0, 100)
-              });
-            }
+        link.onload = () => {
+          if (!loaded) {
+            loaded = true;
+            clearTimeout(timeoutId);
+            console.log(`✅ CSS loaded from ${provider} CDN: ${url}`);
+            resolve();
           }
-        });
+        };
         
-        if (unrenderedDetails.length > 0) {
-          console.warn(`⚠️ KaTeX: Found ${unrenderedDetails.length} paragraphs with unrendered formulas:`);
-          unrenderedDetails.forEach((item, i) => {
-            if (i < 5) { 
-              console.warn(`   [${i + 1}] ${item.content}...`);
-            }
-          });
-          if (unrenderedDetails.length > 5) {
-            console.warn(`   ... and ${unrenderedDetails.length - 5} more`);
+        link.onerror = () => {
+          if (!loaded) {
+            console.warn(`❌ ${provider} CDN failed for ${resourceKey}`);
+            cleanup();
+            currentCDNIndex++;
+            tryNextCDN();
+          }
+        };
+        
+        function cleanup() {
+          clearTimeout(timeoutId);
+          if (link.parentNode) {
+            link.parentNode.removeChild(link);
           }
         }
         
-      } catch (error) {
-        console.error('❌ KaTeX rendering error:', error);
-        console.error('Stack:', error.stack);
+        document.head.appendChild(link);
       }
-    }, 100);
+      
+      function loadLocal() {
+        const localUrl = localPaths[resourceKey];
+        console.log(`🔄 Falling back to local file: ${localUrl}`);
+        
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = localUrl;
+        
+        link.onload = () => {
+          if (!loaded) {
+            loaded = true;
+            console.log(`✅ CSS loaded from local: ${localUrl}`);
+            resolve();
+          }
+        };
+        
+        link.onerror = () => {
+          if (!loaded) {
+            loaded = true;
+            console.error(`❌ Failed to load CSS from all CDNs and local`);
+            reject(new Error(`CSS load failed for ${resourceKey}`));
+          }
+        };
+        
+        document.head.appendChild(link);
+      }
+      
+      
+      tryNextCDN();
+    });
+  }
+
+  
+  function loadJS(resourceKey) {
+    return new Promise((resolve, reject) => {
+      let currentCDNIndex = 0;
+      let loaded = false;
+      
+      function tryNextCDN() {
+        if (currentCDNIndex >= cdnOrder.length) {
+          
+          loadLocal();
+          return;
+        }
+
+        const provider = cdnOrder[currentCDNIndex];
+        const url = cdnProviders[provider][resourceKey];
+        
+        console.log(`🔄 Trying ${provider} CDN for ${resourceKey}...`);
+        
+        const script = document.createElement('script');
+        script.src = url;
+        script.async = true;
+        
+        const timeoutId = setTimeout(() => {
+          if (!loaded) {
+            console.warn(`⏱️ ${provider} CDN timeout for ${resourceKey}, trying next...`);
+            cleanup();
+            currentCDNIndex++;
+            tryNextCDN();
+          }
+        }, 2000); 
+        
+        script.onload = () => {
+          if (!loaded) {
+            loaded = true;
+            clearTimeout(timeoutId);
+            console.log(`✅ JS loaded from ${provider} CDN: ${url}`);
+            resolve();
+          }
+        };
+        
+        script.onerror = () => {
+          if (!loaded) {
+            console.warn(`❌ ${provider} CDN failed for ${resourceKey}`);
+            cleanup();
+            currentCDNIndex++;
+            tryNextCDN();
+          }
+        };
+        
+        function cleanup() {
+          clearTimeout(timeoutId);
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+        }
+        
+        document.head.appendChild(script);
+      }
+      
+      function loadLocal() {
+        const localUrl = localPaths[resourceKey];
+        console.log(`🔄 Falling back to local file: ${localUrl}`);
+        
+        const script = document.createElement('script');
+        script.src = localUrl;
+        
+        script.onload = () => {
+          if (!loaded) {
+            loaded = true;
+            console.log(`✅ JS loaded from local: ${localUrl}`);
+            resolve();
+          }
+        };
+        
+        script.onerror = () => {
+          if (!loaded) {
+            loaded = true;
+            console.error(`❌ Failed to load JS from all CDNs and local`);
+            reject(new Error(`JS load failed for ${resourceKey}`));
+          }
+        };
+        
+        document.head.appendChild(script);
+      }
+      
+      
+      tryNextCDN();
+    });
+  }
+
+  
+  window.ResourceLoader = {
+    loadCSS,
+    loadJS,
+    cdnProviders,
+    localPaths,
+    cdnOrder
+  };
+})();
+</script>
+
+
+<script>
+(function() {
+  if (typeof window.ResourceLoader === 'undefined') {
+    console.error('ResourceLoader not initialized');
+    return;
+  }
+  
+  
+  window.ResourceLoader.loadCSS('katexCSS').catch(err => {
+    console.error('Failed to load KaTeX CSS:', err);
   });
+})();
+</script>
+
+
+<script>
+(function() {
+  if (typeof window.ResourceLoader === 'undefined') {
+    console.error('ResourceLoader not initialized');
+    return;
+  }
+  
+  
+  window.ResourceLoader.loadJS('mermaid').then(() => {
+    
+    document.addEventListener('DOMContentLoaded', async function() {
+      if (typeof mermaid === 'undefined') {
+        console.error('❌ Mermaid: mermaid object not found!');
+        return;
+      }
+
+      console.log('✅ Mermaid loaded, version:', mermaid.version || 'unknown');
+
+      
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: 'default',
+        securityLevel: 'loose',
+        fontFamily: '"Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif',
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+          curve: 'basis'
+        },
+        sequence: {
+          useMaxWidth: true,
+          wrap: true
+        },
+        gantt: {
+          useMaxWidth: true
+        }
+      });
+
+      
+      const mermaidElements = document.querySelectorAll('.mermaid');
+      
+      if (mermaidElements.length === 0) {
+        return;
+      }
+
+      
+      for (let i = 0; i < mermaidElements.length; i++) {
+        const element = mermaidElements[i];
+        
+        
+        if (element.querySelector('svg')) {
+          continue;
+        }
+
+        
+        
+        const graphDefinition = element.textContent.trim();
+        
+        if (!graphDefinition) {
+          continue;
+        }
+
+        try {
+          
+          const id = `mermaid-${Date.now()}-${i}`;
+          const { svg } = await mermaid.render(id, graphDefinition);
+          
+          
+          element.innerHTML = svg;
+          element.classList.add('mermaid-rendered');
+          
+        } catch (error) {
+          console.error(`Mermaid rendering error [${i}]:`, error);
+          
+          
+          element.innerHTML = `
+            <div style="color: #dc3545; padding: 1rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;">
+              <strong>Mermaid Diagram Error</strong><br>
+              <small>${error.message}</small>
+            </div>
+          `;
+          element.classList.add('mermaid-error');
+        }
+      }
+      
+      if (mermaidElements.length > 0) {
+        console.log(`Mermaid: ${mermaidElements.length} diagram(s) processed`);
+      }
+    });
+  }).catch(err => {
+    console.error('Failed to load Mermaid:', err);
+  });
+})();
+</script>
+
+
+<script>
+(function() {
+  if (typeof window.ResourceLoader === 'undefined') {
+    console.error('ResourceLoader not initialized');
+    return;
+  }
+  
+  
+  Promise.all([
+    window.ResourceLoader.loadJS('katexJS'),
+    window.ResourceLoader.loadJS('katexAutoRender')
+  ]).then(() => {
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log('KaTeX: Initializing...');
+      
+      
+      setTimeout(function() {
+        if (typeof katex === 'undefined') {
+          console.error('❌ KaTeX: katex object not found!');
+          return;
+        }
+        
+        console.log('✅ KaTeX loaded, version:', katex.version);
+        
+        if (typeof renderMathInElement === 'undefined') {
+          console.error('❌ KaTeX: renderMathInElement not found!');
+          return;
+        }
+        
+        console.log('✅ KaTeX auto-render available');
+        
+        try {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+            ],
+            throwOnError: false,
+            trust: true,
+            strict: false,
+            macros: {
+              "\\target": "\\text{target}",
+              "\\mkt": "\\text{mkt}",
+              "\\BL": "\\text{BL}"
+            },
+            
+            errorCallback: function(msg, tex) {
+              console.warn('⚠️ KaTeX warning:', msg);
+              console.warn('   Formula:', tex.substring(0, 150));
+            }
+          });
+          
+          const renderedFormulas = document.querySelectorAll('.katex');
+          console.log(`📊 KaTeX: Successfully rendered ${renderedFormulas.length} formulas`);
+          
+          
+          const allParagraphs = Array.from(document.querySelectorAll('p'));
+          let unrenderedDetails = [];
+          
+          allParagraphs.forEach((p, index) => {
+            const text = p.textContent;
+            if (text.includes('$$')) {
+              
+              const hasKatex = p.querySelector('.katex');
+              if (!hasKatex) {
+                unrenderedDetails.push({
+                  index: index,
+                  content: text.substring(0, 100)
+                });
+              }
+            }
+          });
+          
+          if (unrenderedDetails.length > 0) {
+            console.warn(`⚠️ KaTeX: Found ${unrenderedDetails.length} paragraphs with unrendered formulas:`);
+            unrenderedDetails.forEach((item, i) => {
+              if (i < 5) { 
+                console.warn(`   [${i + 1}] ${item.content}...`);
+              }
+            });
+            if (unrenderedDetails.length > 5) {
+              console.warn(`   ... and ${unrenderedDetails.length - 5} more`);
+            }
+          }
+          
+        } catch (error) {
+          console.error('❌ KaTeX rendering error:', error);
+          console.error('Stack:', error.stack);
+        }
+      }, 100);
+    });
+  }).catch(err => {
+    console.error('Failed to load KaTeX:', err);
+  });
+})();
 </script>
 
 
