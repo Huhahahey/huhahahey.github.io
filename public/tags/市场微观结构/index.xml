@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>市场微观结构 on 技术博客</title>
+    <link>//localhost:1313/tags/%E5%B8%82%E5%9C%BA%E5%BE%AE%E8%A7%82%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 市场微观结构 on 技术博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/%E5%B8%82%E5%9C%BA%E5%BE%AE%E8%A7%82%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>高频交易揭秘：从市场微观结构到极速策略</title>
+      <link>//localhost:1313/posts/high-frequency-trading-system-secret/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/high-frequency-trading-system-secret/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;本文部分内容使用AI技术生成，仅供个人学习参考，内容准确性请读者自行甄别。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;引言速度与智慧的极致博弈&#34;&gt;引言：速度与智慧的极致博弈&lt;/h2&gt;&#xA;&lt;p&gt;2010年5月6日，美国股市发生&amp;quot;闪崩&amp;quot;（Flash Crash）：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;14:42&lt;/strong&gt;：道指开始快速下跌&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;14:47&lt;/strong&gt;：5分钟内暴跌998点（-9.2%）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;14:52&lt;/strong&gt;：又快速反弹回升&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;最终&lt;/strong&gt;：收盘仍跌3.2%，创史上最大单日盘中振幅&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;罪魁祸首？&lt;/strong&gt; 高频交易算法的连锁反应。&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;mermaid&#34;&gt;sequenceDiagram&#xA;    participant HFT as 高频交易算法&#xA;    participant M as 市场流动性&#xA;    participant I as 机构投资者&#xA;    participant E as 交易所&#xA;    &#xA;    HFT-&amp;gt;&amp;gt;E: 大量撤单（退出做市）&#xA;    E-&amp;gt;&amp;gt;M: 流动性瞬间枯竭&#xA;    I-&amp;gt;&amp;gt;E: 大额卖单无法成交&#xA;    E-&amp;gt;&amp;gt;I: 价格连续向下撮合&#xA;    I-&amp;gt;&amp;gt;HFT: 触发更多算法止损&#xA;    HFT-&amp;gt;&amp;gt;E: 加速抛售&#xA;    E-&amp;gt;&amp;gt;M: 恶性循环&#xA;    &#xA;    Note over HFT,M: 整个过程仅持续&amp;lt;br/&amp;gt;约5分钟&lt;/div&gt;&#xA;&lt;p&gt;这场事件让高频交易（High-Frequency Trading, HFT）进入公众视野，也引发了巨大争议：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;批评者&lt;/strong&gt;：&amp;ldquo;这是合法的市场操纵&amp;quot;&amp;ldquo;用技术优势收割普通投资者&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;支持者&lt;/strong&gt;：&amp;ldquo;提供流动性&amp;quot;&amp;ldquo;缩小买卖价差&amp;quot;&amp;ldquo;提升市场效率&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;真相是什么？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;高频交易既不是恶魔，也不是圣杯。它是一种&lt;strong&gt;利用速度和技术优势获取微薄利润&lt;/strong&gt;的交易方式，需要：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;⚡ &lt;strong&gt;极致的基础设施&lt;/strong&gt;：微秒级延迟、专用硬件&lt;/li&gt;&#xA;&lt;li&gt;🧠 &lt;strong&gt;复杂的算法&lt;/strong&gt;：预测短期价格变动、优化执行&lt;/li&gt;&#xA;&lt;li&gt;💰 &lt;strong&gt;巨大的投入&lt;/strong&gt;：每年数千万美元的技术成本&lt;/li&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;深厚的理论&lt;/strong&gt;：市场微观结构、排队论、随机控制&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;本文将带你深入了解高频交易的世界：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;市场微观结构&lt;/strong&gt;：理解订单如何匹配、价格如何形成&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HFT策略分类&lt;/strong&gt;：做市、套利、方向性交易的原理&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;技术架构&lt;/strong&gt;：从网络拓扑到FPGA的超低延迟系统&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;盈利模式&lt;/strong&gt;：如何在毫秒间积累利润&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;风险与监管&lt;/strong&gt;：闪崩教训与全球监管框架&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;未来趋势&lt;/strong&gt;：AI赋能、去中心化、量子计算&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;无论你是对量化交易感兴趣的学生，还是想深入了解市场运作的从业者，都能从中获得启发。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;一市场微观结构基础&#34;&gt;一、市场微观结构基础&lt;/h2&gt;&#xA;&lt;h3 id=&#34;11-什么是市场微观结构&#34;&gt;1.1 什么是市场微观结构？&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

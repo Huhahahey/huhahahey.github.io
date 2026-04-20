@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 技术博客</title>
+    <link>//localhost:1313/categories/</link>
+    <description>Recent content in Categories on 技术博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 16 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>方法论</title>
+      <link>//localhost:1313/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>技术写作</title>
+      <link>//localhost:1313/categories/%E6%8A%80%E6%9C%AF%E5%86%99%E4%BD%9C/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E6%8A%80%E6%9C%AF%E5%86%99%E4%BD%9C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>工程管理</title>
+      <link>//localhost:1313/categories/%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>前端性能</title>
+      <link>//localhost:1313/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>系统架构</title>
+      <link>//localhost:1313/categories/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>金融科技</title>
+      <link>//localhost:1313/categories/%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

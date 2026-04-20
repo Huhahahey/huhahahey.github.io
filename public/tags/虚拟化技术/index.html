@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>虚拟化技术 - 技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="//localhost:1313/favicon.png">
+  <link rel="canonical" href="//localhost:1313/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/" />
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/extended.css">
+
+  
+    
+    <meta property="og:title" content="虚拟化技术"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="//localhost:1313/tags/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@techblog"/>
+    <meta name="twitter:creator" content="@techblog"/>
+  
+
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="/css/vendor/fonts/noto-sans-sc.css" rel="stylesheet">
+  
+
+  
+<link rel="stylesheet" href="/css/vendor/katex.min.css">
+</head>
+
+
+
+
+<body class='page frame page-default-list'>
+  <div id="menu-main-mobile" class="menu-main-mobile">
+    <ul class="menu">
+        
+        
+            
+                <li class="menu-item-home">
+                    <a href="//localhost:1313/">Home</a>
+                </li>
+            
+        
+            
+                <li class="menu-item-blog">
+                    <a href="//localhost:1313/posts/">Blog</a>
+                </li>
+            
+        
+            
+                <li class="menu-item-tags">
+                    <a href="//localhost:1313/tags/">Tags</a>
+                </li>
+            
+        
+            
+                <li class="menu-item-about">
+                    <a href="//localhost:1313/about/">About</a>
+                </li>
+            
+        
+    </ul>
+</div>
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <a class="header-logo" href="/">技术博客</a>
+  <div class="menu-main">
+    <ul>
+      
+      
+      
+      
+      <li class="menu-item-home ">
+        <a href="/">
+          
+          <span>Home</span>
+        </a>
+      </li>
+      
+      
+      
+      <li class="menu-item-blog ">
+        <a href="/posts/">
+          
+          <span>Blog</span>
+        </a>
+      </li>
+      
+      
+      
+      <li class="menu-item-tags ">
+        <a href="/tags/">
+          
+          <span>Tags</span>
+        </a>
+      </li>
+      
+      
+      
+      <li class="menu-item-about ">
+        <a href="/about/">
+          
+          <span>About</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+  <div id="toggle-menu-main-mobile" class="hamburger-trigger">
+    <button class="hamburger">Menu</button>
+  </div>
+</div>
+    
+  <div class="intro">
+    <h1>虚拟化技术<span class="dot">.</span></h1>
+    
+  </div>
+  
+  
+    <div class="summary">
+      <h2 class="summary-title"><a href="/posts/virtual-machine-technology-deep-dive/">虚拟机技术深度解析：原理、实践与容器对比<span class="dot">.</span></a></h2>
+      <p class="summary-description">深入探讨虚拟机技术的核心原理，包括 Hypervisor 类型、硬件虚拟化扩展、内存管理和 I/O 虚拟化，并与容器技术进行全面对比分析。</p>
+    </div>
+  
+
+    <div class="footer">
+  
+  <div class="footer-social">
+    
+      <span class="social-icon social-icon-github">
+        <a href="https://github.com" title="github" target="_blank" rel="noopener">
+          <img src="/images/social/github.svg" width="24" height="24" alt="github"/>
+        </a>
+      </span>
+    
+  </div>
+  
+</div>
+  </div>
+
+  
+
+  
+    <script type="text/javascript" src="/js/bundle.js"></script>
+  
+
+  
+  
+
+  
+
+  
+
+
+  
+<script src="/js/vendor/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async function() {
+    if (typeof mermaid === 'undefined') {
+      return;
+    }
+
+    
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      fontFamily: '"Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      sequence: {
+        useMaxWidth: true,
+        wrap: true
+      },
+      gantt: {
+        useMaxWidth: true
+      }
+    });
+
+    
+    const mermaidElements = document.querySelectorAll('.mermaid');
+    
+    if (mermaidElements.length === 0) {
+      return;
+    }
+
+    
+    for (let i = 0; i < mermaidElements.length; i++) {
+      const element = mermaidElements[i];
+      
+      
+      if (element.querySelector('svg')) {
+        continue;
+      }
+
+      
+      
+      const graphDefinition = element.textContent.trim();
+      
+      if (!graphDefinition) {
+        continue;
+      }
+
+      try {
+        
+        const id = `mermaid-${Date.now()}-${i}`;
+        const { svg } = await mermaid.render(id, graphDefinition);
+        
+        
+        element.innerHTML = svg;
+        element.classList.add('mermaid-rendered');
+        
+      } catch (error) {
+        console.error(`Mermaid rendering error [${i}]:`, error);
+        
+        
+        element.innerHTML = `
+          <div style="color: #dc3545; padding: 1rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;">
+            <strong>Mermaid Diagram Error</strong><br>
+            <small>${error.message}</small>
+          </div>
+        `;
+        element.classList.add('mermaid-error');
+      }
+    }
+    
+    if (mermaidElements.length > 0) {
+      console.log(`Mermaid: ${mermaidElements.length} diagram(s) processed`);
+    }
+  });
+</script>
+
+
+<script defer src="/js/vendor/katex.min.js"></script>
+<script defer src="/js/vendor/katex-auto-render.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    console.log('KaTeX: Initializing...');
+    
+    
+    setTimeout(function() {
+      if (typeof katex === 'undefined') {
+        console.error('❌ KaTeX: katex object not found!');
+        return;
+      }
+      
+      console.log('✅ KaTeX loaded, version:', katex.version);
+      
+      if (typeof renderMathInElement === 'undefined') {
+        console.error('❌ KaTeX: renderMathInElement not found!');
+        return;
+      }
+      
+      console.log('✅ KaTeX auto-render available');
+      
+      try {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false,
+          trust: true,
+          strict: false,
+          macros: {
+            "\\target": "\\text{target}",
+            "\\mkt": "\\text{mkt}",
+            "\\BL": "\\text{BL}"
+          },
+          
+          errorCallback: function(msg, tex) {
+            console.warn('⚠️ KaTeX warning:', msg);
+            console.warn('   Formula:', tex.substring(0, 150));
+          }
+        });
+        
+        const renderedFormulas = document.querySelectorAll('.katex');
+        console.log(`📊 KaTeX: Successfully rendered ${renderedFormulas.length} formulas`);
+        
+        
+        const allParagraphs = Array.from(document.querySelectorAll('p'));
+        let unrenderedDetails = [];
+        
+        allParagraphs.forEach((p, index) => {
+          const text = p.textContent;
+          if (text.includes('$$')) {
+            
+            const hasKatex = p.querySelector('.katex');
+            if (!hasKatex) {
+              unrenderedDetails.push({
+                index: index,
+                content: text.substring(0, 100)
+              });
+            }
+          }
+        });
+        
+        if (unrenderedDetails.length > 0) {
+          console.warn(`⚠️ KaTeX: Found ${unrenderedDetails.length} paragraphs with unrendered formulas:`);
+          unrenderedDetails.forEach((item, i) => {
+            if (i < 5) { 
+              console.warn(`   [${i + 1}] ${item.content}...`);
+            }
+          });
+          if (unrenderedDetails.length > 5) {
+            console.warn(`   ... and ${unrenderedDetails.length - 5} more`);
+          }
+        }
+        
+      } catch (error) {
+        console.error('❌ KaTeX rendering error:', error);
+        console.error('Stack:', error.stack);
+      }
+    }, 100);
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    const tables = document.querySelectorAll('.content table');
+    tables.forEach(table => {
+      if (!table.parentElement.classList.contains('table-wrapper')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

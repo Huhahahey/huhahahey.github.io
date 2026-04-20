@@ -1,0 +1,189 @@
+{{- /* Footer custom content area start */ -}}
+{{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
+
+<!-- Mermaid.js for diagrams -->
+<script src="/js/vendor/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async function() {
+    if (typeof mermaid === 'undefined') {
+      return;
+    }
+
+    // Initialize Mermaid with official recommended configuration
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      securityLevel: 'loose',
+      fontFamily: '"Noto Sans SC", "Noto Sans JP", "Noto Sans KR", sans-serif',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      sequence: {
+        useMaxWidth: true,
+        wrap: true
+      },
+      gantt: {
+        useMaxWidth: true
+      }
+    });
+
+    // Find all mermaid code blocks
+    const mermaidElements = document.querySelectorAll('.mermaid');
+    
+    if (mermaidElements.length === 0) {
+      return;
+    }
+
+    // Render each diagram
+    for (let i = 0; i < mermaidElements.length; i++) {
+      const element = mermaidElements[i];
+      
+      // Skip if already rendered
+      if (element.querySelector('svg')) {
+        continue;
+      }
+
+      // Get the diagram definition from textContent
+      // textContent automatically decodes HTML entities
+      const graphDefinition = element.textContent.trim();
+      
+      if (!graphDefinition) {
+        continue;
+      }
+
+      try {
+        // Use the official Promise-based API (Mermaid v10+)
+        const id = `mermaid-${Date.now()}-${i}`;
+        const { svg } = await mermaid.render(id, graphDefinition);
+        
+        // Replace the div content with rendered SVG
+        element.innerHTML = svg;
+        element.classList.add('mermaid-rendered');
+        
+      } catch (error) {
+        console.error(`Mermaid rendering error [${i}]:`, error);
+        
+        // Show user-friendly error message
+        element.innerHTML = `
+          <div style="color: #dc3545; padding: 1rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;">
+            <strong>Mermaid Diagram Error</strong><br>
+            <small>${error.message}</small>
+          </div>
+        `;
+        element.classList.add('mermaid-error');
+      }
+    }
+    
+    if (mermaidElements.length > 0) {
+      console.log(`Mermaid: ${mermaidElements.length} diagram(s) processed`);
+    }
+  });
+</script>
+
+<!-- KaTeX for math formulas -->
+<script defer src="/js/vendor/katex.min.js"></script>
+<script defer src="/js/vendor/katex-auto-render.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    console.log('KaTeX: Initializing...');
+    
+    // Wait a bit to ensure scripts are loaded
+    setTimeout(function() {
+      if (typeof katex === 'undefined') {
+        console.error('❌ KaTeX: katex object not found!');
+        return;
+      }
+      
+      console.log('✅ KaTeX loaded, version:', katex.version);
+      
+      if (typeof renderMathInElement === 'undefined') {
+        console.error('❌ KaTeX: renderMathInElement not found!');
+        return;
+      }
+      
+      console.log('✅ KaTeX auto-render available');
+      
+      try {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false,
+          trust: true,
+          strict: false,
+          macros: {
+            "\\target": "\\text{target}",
+            "\\mkt": "\\text{mkt}",
+            "\\BL": "\\text{BL}"
+          },
+          // Add error handler
+          errorCallback: function(msg, tex) {
+            console.warn('⚠️ KaTeX warning:', msg);
+            console.warn('   Formula:', tex.substring(0, 150));
+          }
+        });
+        
+        const renderedFormulas = document.querySelectorAll('.katex');
+        console.log(`📊 KaTeX: Successfully rendered ${renderedFormulas.length} formulas`);
+        
+        // Detailed check for unrendered formulas
+        const allParagraphs = Array.from(document.querySelectorAll('p'));
+        let unrenderedDetails = [];
+        
+        allParagraphs.forEach((p, index) => {
+          const text = p.textContent;
+          if (text.includes('$$')) {
+            // Check if this paragraph contains a rendered katex element
+            const hasKatex = p.querySelector('.katex');
+            if (!hasKatex) {
+              unrenderedDetails.push({
+                index: index,
+                content: text.substring(0, 100)
+              });
+            }
+          }
+        });
+        
+        if (unrenderedDetails.length > 0) {
+          console.warn(`⚠️ KaTeX: Found ${unrenderedDetails.length} paragraphs with unrendered formulas:`);
+          unrenderedDetails.forEach((item, i) => {
+            if (i < 5) { // Show first 5 examples
+              console.warn(`   [${i + 1}] ${item.content}...`);
+            }
+          });
+          if (unrenderedDetails.length > 5) {
+            console.warn(`   ... and ${unrenderedDetails.length - 5} more`);
+          }
+        }
+        
+      } catch (error) {
+        console.error('❌ KaTeX rendering error:', error);
+        console.error('Stack:', error.stack);
+      }
+    }, 100);
+  });
+</script>
+
+<!-- Add table wrapper for responsive tables -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Wrap all tables with a responsive container
+    const tables = document.querySelectorAll('.content table');
+    tables.forEach(table => {
+      if (!table.parentElement.classList.contains('table-wrapper')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+  });
+</script>
+
+{{- /* Footer custom content area end */ -}}
